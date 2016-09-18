@@ -236,6 +236,7 @@
       {% if is_index and not isLast %}
         <div class="post-eof"></div>
       {% endif %}
+     
     </footer>
   </article>
 

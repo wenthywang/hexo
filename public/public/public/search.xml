@@ -4,6 +4,61 @@
   
     
     <entry>
+      <title><![CDATA[使用Hexo+Git+Nodejs搭建个人博客]]></title>
+      <url>https://wenthywang.github.io/2016/09/11/Hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</url>
+      <content type="html"><![CDATA[<p>&emsp;&emsp;处于好奇，看到别人搞自己的博客，自己也想尝试一番，没想到，弄着弄着就喜欢上了，有时候真是挡也挡不住。遇到的问题也是甚多。刚才发现md的语法原来没有两个空格的，网上有说法使用<code>&amp;emsp;&amp;emsp;</code>反正我是这么用了，因为我用不了输入法的全角的两个空格，我的输入法是win10自带的输入法，所以如果某f有输入法可以尝试一下哦。好了，废话不说了。上教程。</p>
+<h2 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h2><ul>
+<li>首先也是必须要注册一个<a href="https://github.com/" title="github" target="_blank" rel="external">Git</a>，注册流程就不多说了，反正都是一样了，然后就新增一个Repository，<strong>名字必须是XXX.github.io,也必须是master主干，xxx是你的git的用户名</strong><img src="/img/git1.png" alt="参考">  创建完成后，需要git客户端，客户端下载就不说了，百度都有。</li>
+</ul>
+<h2 id="NodeJs"><a href="#NodeJs" class="headerlink" title="NodeJs"></a>NodeJs</h2><p>&emsp;&emsp;首先要安装<a href="https://nodejs.org/download/" target="_blank" rel="external">nodejs</a>挺多版本的 我的npm是1.4.28版本 作用是生成一些静态的html，安装成功后 可输入命令<br><code>mpn -v</code><br>查看当前版本 如果查看不了 证明安装失败，那就要重新安装了。</p>
+<h2 id="Hexo"><a href="#Hexo" class="headerlink" title="Hexo"></a>Hexo</h2><ul>
+<li><p>正式安装Hexo 建立文件夹hexo，切换到当前文件夹下，输入命令<br><code>npm install -g hexo</code><br>安装hexo，速度的快慢要看你的网速了。  </p>
+</li>
+<li><p>执行初始化hexo,命令：<br><code>hexo init</code>  </p>
+</li>
+<li>启动本地服务命令：<br><code>hexo server</code>（hexo s也可以）  </li>
+<li>浏览器输入<a href="http://localhost:4000" target="_blank" rel="external">http://localhost:4000</a>  </li>
+</ul>
+<p><strong>浏览器有出现hexo的主题页面</strong>，证明安装成功了，若没出现，可以看下哪里配置出问题，一般是没有问题的。</p>
+<h2 id="配置Github"><a href="#配置Github" class="headerlink" title="配置Github"></a>配置Github</h2><ul>
+<li><p>找到hexo的配置文件_config.yml,这个文件在hexo的根目录下，打开配置文件。进行如下配置：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">type: git  </div><div class="line">repository: git@github.com:wenthywang/wenthywang.github.io.git  </div><div class="line">branch: master</div></pre></td></tr></table></figure>
+</li>
+<li><p>执行命令：<br><code>npm install hexo-deployer-git --save</code><br><strong><em>网上会有很多说法，有的type是github, 还有repository最后面的后缀也不一样，是github.com.git，我也踩了很多坑，我现在的版本是hexo: 3.2.2，执行命令hexo -vsersion就出来了,貌似3.0后全部改成我上面这种格式了。</em></strong></p>
+</li>
+<li><p>执行配置命令：<br><code>hexo deploy(hexo d)</code></p>
+</li>
+<li>浏览器中输入<code>http://wenthywang.github.io/</code>就行了，我的github的账户叫wenthywang,把这个改成你github的账户名就行了</li>
+</ul>
+<h2 id="部署步骤"><a href="#部署步骤" class="headerlink" title="部署步骤"></a>部署步骤</h2><p>三步走：</p>
+<ul>
+<li><p>hexo clean</p>
+</li>
+<li><p>hexo generate(hexo g)</p>
+</li>
+<li><p>hexo deploy(hexo d)</p>
+</li>
+</ul>
+<h2 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h2><ul>
+<li><p>hexo new”postName” #新建文章</p>
+</li>
+<li><p>hexo new page”pageName” #新建页面</p>
+</li>
+<li><p>hexo generate #生成静态页面至public目录</p>
+</li>
+<li><p>hexo server #开启预览访问端口（默认端口4000，’ctrl + c’关闭server）</p>
+</li>
+<li><p>hexo deploy #将.deploy目录部署到GitHub</p>
+</li>
+<li><p>hexo help # 查看帮助</p>
+</li>
+<li><p>hexo version #查看Hexo的版本</p>
+</li>
+</ul>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[项目中POI导出出现HTML特殊符号的实体--已解决]]></title>
       <url>https://wenthywang.github.io/2016/07/28/%E9%A1%B9%E7%9B%AE%E4%B8%ADPOI%E5%AF%BC%E5%87%BA%E5%87%BA%E7%8E%B0HTML%E7%89%B9%E6%AE%8A%E7%AC%A6%E5%8F%B7%E7%9A%84%E5%AE%9E%E4%BD%93(%E5%B7%B2%E8%A7%A3%E5%86%B3)/</url>
       <content type="html"><![CDATA[<h2 id="问题："><a href="#问题：" class="headerlink" title="问题："></a>问题：</h2><pre><code>导出excel 时出现 类似这样的&amp;gt;符号，大概是存到数据库也是这样，然后jsp解析可以解析出来，但是java不认得，需要个人写出解析方法。
