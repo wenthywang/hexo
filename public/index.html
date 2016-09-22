@@ -291,6 +291,350 @@
             
               
                 
+                <a class="post-title-link" href="/2016/09/22/git工程批量更新和自动提交/" itemprop="url">
+                  git工程批量更新和自动提交
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-09-22T15:53:41+08:00" content="2016-09-22">
+              2016-09-22
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/GIT/" itemprop="url" rel="index">
+                    <span itemprop="name">GIT</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/09/22/git工程批量更新和自动提交/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/22/git工程批量更新和自动提交/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/09/22/git工程批量更新和自动提交/" class="leancloud_visitors" data-flag-title="git工程批量更新和自动提交">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="git工程批量更新"><a href="#git工程批量更新" class="headerlink" title="git工程批量更新"></a>git工程批量更新</h2><p>用gitbash客户端都有一种不爽，更新多个工程需要很多的fetch，rebase，stash等命令，所以无聊就看了下shell脚本，看能不能批量fetch，rebase，搞了下，还是可以的，不过我这个是直接pull，直接合并到当前工程。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#/bin/bash</span></div><div class="line"><span class="built_in">echo</span> <span class="string">'**********选择更新的git项目**********'</span></div><div class="line"><span class="built_in">echo</span> <span class="string">'0.all'</span></div><div class="line"><span class="built_in">echo</span> <span class="string">'1.jiaxin_lib_core'</span></div><div class="line"><span class="built_in">echo</span> <span class="string">'2.jiaxin_lib_dubbox'</span></div><div class="line"><span class="built_in">echo</span> <span class="string">'3.jiaxin_web_devcenter'</span></div><div class="line"><span class="built_in">echo</span> <span class="string">'4.jiaxin_web_agent'</span></div><div class="line"><span class="built_in">echo</span> <span class="string">'5.jiaxin_web_conf'</span></div><div class="line"><span class="built_in">echo</span> <span class="string">'6.jiaxin_gw_statistics'</span></div><div class="line"><span class="built_in">echo</span> <span class="string">'7.jiaxin_gw_config'</span></div><div class="line"><span class="built_in">echo</span> <span class="string">'8.jiaxin_gw_container'</span></div><div class="line"><span class="built_in">echo</span> <span class="string">'9.jiaxin_gw_order'</span></div><div class="line"><span class="built_in">read</span> project</div><div class="line">               <span class="comment">#在控制台输入1 2 3，它们之间用空格隔开。</span></div><div class="line"><span class="keyword">if</span> <span class="built_in">test</span> <span class="variable">$project</span> <span class="_">-eq</span> 0  ;<span class="keyword">then</span></div><div class="line"><span class="built_in">echo</span> <span class="string">'------------------------jiaxin_lib_core-----------------------'</span></div><div class="line"><span class="built_in">cd</span> jiaxin_lib_core &amp;&amp; git pull &amp;&amp; <span class="built_in">cd</span> ..</div><div class="line"><span class="built_in">echo</span> <span class="string">'------------------------jiaxin_lib_dubbox-----------------------'</span></div><div class="line"><span class="built_in">cd</span> jiaxin_lib_dubbox &amp;&amp; git pull &amp;&amp; <span class="built_in">cd</span> ..</div><div class="line"><span class="built_in">echo</span> <span class="string">'------------------------jiaxin_web_devcenter-----------------------'</span></div><div class="line"><span class="built_in">cd</span> jiaxin_web_devcenter &amp;&amp; git pull &amp;&amp; <span class="built_in">cd</span> ..</div><div class="line"><span class="built_in">echo</span> <span class="string">'------------------------jiaxin_web_agent-----------------------'</span></div><div class="line"><span class="built_in">cd</span> jiaxin_web_agent &amp;&amp; git pull &amp;&amp; <span class="built_in">cd</span> ..</div><div class="line"><span class="built_in">echo</span> <span class="string">'------------------------jiaxin_web_conf-----------------------'</span></div><div class="line"><span class="built_in">cd</span> jiaxin_web_conf &amp;&amp; git pull &amp;&amp; <span class="built_in">cd</span> ..</div><div class="line"><span class="built_in">echo</span> <span class="string">'------------------------jiaxin_gw_statistics-----------------------'</span></div><div class="line"><span class="built_in">cd</span> jiaxin_gw_statistics &amp;&amp; git pull &amp;&amp; <span class="built_in">cd</span> ..</div><div class="line"><span class="built_in">echo</span> <span class="string">'------------------------jiaxin_gw_config-----------------------'</span></div><div class="line"><span class="built_in">cd</span> jiaxin_gw_config &amp;&amp; git pull &amp;&amp; <span class="built_in">cd</span> ..</div><div class="line"><span class="built_in">echo</span> <span class="string">'------------------------jiaxin_gw_container-----------------------'</span></div><div class="line"><span class="built_in">cd</span> jiaxin_gw_container &amp;&amp; git checkout *.jar &amp;&amp; git pull &amp;&amp; <span class="built_in">cd</span> ..</div><div class="line"><span class="built_in">echo</span> <span class="string">'------------------------jiaxin_gw_order-----------------------'</span></div><div class="line"><span class="built_in">cd</span> jiaxin_gw_order &amp;&amp; git pull &amp;&amp; <span class="built_in">cd</span> ..</div><div class="line"><span class="keyword">fi</span></div><div class="line"></div><div class="line"><span class="keyword">if</span> <span class="built_in">test</span> <span class="variable">$project</span> <span class="_">-eq</span> 1 ;<span class="keyword">then</span>   </div><div class="line"><span class="built_in">echo</span> <span class="string">'-----------------------jiaxin_lib_core-START-----------------------'</span> </div><div class="line"></div><div class="line"><span class="built_in">cd</span> jiaxin_lib_core &amp;&amp; git pull &amp;&amp; <span class="built_in">cd</span> ..</div><div class="line"><span class="built_in">echo</span> <span class="string">'------------------------jiaxin_lib_core-END-----------------------'</span>;</div><div class="line"><span class="keyword">fi</span></div><div class="line"><span class="keyword">if</span> <span class="built_in">test</span> <span class="variable">$project</span> <span class="_">-eq</span> 2  ;<span class="keyword">then</span></div><div class="line"><span class="built_in">echo</span> <span class="string">'------------------------jiaxin_lib_dubbox-START----------------------'</span></div><div class="line"><span class="built_in">cd</span> jiaxin_lib_dubbox &amp;&amp; git pull &amp;&amp; <span class="built_in">cd</span> ..</div><div class="line"><span class="built_in">echo</span> <span class="string">'-----------------------jiaxin_lib_dubbox-END-----------------------'</span>;</div><div class="line"><span class="keyword">fi</span></div><div class="line"><span class="keyword">if</span> <span class="built_in">test</span> <span class="variable">$project</span> <span class="_">-eq</span> 3  ;<span class="keyword">then</span></div><div class="line"><span class="built_in">echo</span> <span class="string">'------------------------jiaxin_web_devcenter-START----------------------'</span></div><div class="line"><span class="built_in">cd</span> jiaxin_web_devcenter &amp;&amp; git pull &amp;&amp; <span class="built_in">cd</span> ..</div><div class="line"><span class="built_in">echo</span> <span class="string">'-----------------------jiaxin_web_devcenter-END-----------------------'</span>;</div><div class="line"><span class="keyword">fi</span></div><div class="line"><span class="keyword">if</span> <span class="built_in">test</span> <span class="variable">$project</span> <span class="_">-eq</span> 4  ;<span class="keyword">then</span></div><div class="line"><span class="built_in">echo</span> <span class="string">'------------------------jiaxin_web_agent-START----------------------'</span></div><div class="line"><span class="built_in">cd</span> jiaxin_web_agent &amp;&amp; git pull &amp;&amp; <span class="built_in">cd</span> ..</div><div class="line"><span class="built_in">echo</span> <span class="string">'-----------------------jiaxin_web_agent-END-----------------------'</span>;</div><div class="line"><span class="keyword">fi</span></div><div class="line"><span class="keyword">if</span> <span class="built_in">test</span> <span class="variable">$project</span> <span class="_">-eq</span> 5  ;<span class="keyword">then</span></div><div class="line"><span class="built_in">echo</span> <span class="string">'------------------------jiaxin_web_conf-START----------------------'</span></div><div class="line"><span class="built_in">cd</span> jiaxin_web_conf &amp;&amp; git pull &amp;&amp; <span class="built_in">cd</span> ..</div><div class="line"><span class="built_in">echo</span> <span class="string">'-----------------------jiaxin_web_conf-END-----------------------'</span>;</div><div class="line"><span class="keyword">fi</span></div><div class="line"><span class="keyword">if</span> <span class="built_in">test</span> <span class="variable">$project</span> <span class="_">-eq</span> 6  ;<span class="keyword">then</span></div><div class="line"><span class="built_in">echo</span> <span class="string">'------------------------jiaxin_gw_statistics-START----------------------'</span></div><div class="line"><span class="built_in">cd</span> jiaxin_gw_statistics &amp;&amp; git pull &amp;&amp; <span class="built_in">cd</span> ..</div><div class="line"><span class="built_in">echo</span> <span class="string">'-----------------------jiaxin_gw_statistics-END-----------------------'</span>;</div><div class="line"><span class="keyword">fi</span></div><div class="line"><span class="keyword">if</span> <span class="built_in">test</span> <span class="variable">$project</span> <span class="_">-eq</span> 7  ;<span class="keyword">then</span></div><div class="line"><span class="built_in">echo</span> <span class="string">'------------------------jiaxin_gw_config-START----------------------'</span></div><div class="line"><span class="built_in">cd</span> jiaxin_gw_config &amp;&amp; git pull &amp;&amp; <span class="built_in">cd</span> ..</div><div class="line"><span class="built_in">echo</span> <span class="string">'-----------------------jiaxin_gw_config-END-----------------------'</span>;</div><div class="line"><span class="keyword">fi</span></div><div class="line"><span class="keyword">if</span> <span class="built_in">test</span> <span class="variable">$project</span> <span class="_">-eq</span> 8  ;<span class="keyword">then</span></div><div class="line"><span class="built_in">echo</span> <span class="string">'------------------------jiaxin_gw_container-START----------------------'</span></div><div class="line"><span class="built_in">cd</span> jiaxin_gw_container &amp;&amp; git checkout *.jar &amp;&amp; git pull &amp;&amp; <span class="built_in">cd</span> ..</div><div class="line"><span class="built_in">echo</span> <span class="string">'-----------------------jiaxin_gw_container-END-----------------------'</span>;</div><div class="line"><span class="keyword">fi</span></div><div class="line"><span class="keyword">if</span> <span class="built_in">test</span> <span class="variable">$project</span> <span class="_">-eq</span> 9  ;<span class="keyword">then</span></div><div class="line"><span class="built_in">echo</span> <span class="string">'------------------------jiaxin_gw_order-START----------------------'</span></div><div class="line"><span class="built_in">cd</span> jiaxin_gw_order &amp;&amp; git pull &amp;&amp; <span class="built_in">cd</span> ..</div><div class="line"><span class="built_in">echo</span> <span class="string">'-----------------------jiaxin_gw_order-END-----------------------'</span>;</div><div class="line"><span class="keyword">fi</span></div></pre></td></tr></table></figure></p>
+<h2 id="git工程push"><a href="#git工程push" class="headerlink" title="git工程push"></a>git工程push</h2><pre><code class="bash"><span class="comment">#/bin/bash</span>
+<span class="built_in">echo</span> <span class="string">'**********选择push的git项目**********'</span>
+<span class="built_in">echo</span> <span class="string">'1.jiaxin_lib_core'</span>
+<span class="built_in">echo</span> <span class="string">'2.jiaxin_lib_dubbox'</span>
+<span class="built_in">echo</span> <span class="string">'3.jiaxin_web_devcenter'</span>
+<span class="built_in">echo</span> <span class="string">'4.jiaxin_web_agent'</span>
+<span class="built_in">echo</span> <span class="string">'5.jiaxin_web_conf'</span>
+<span class="built_in">echo</span> <span class="string">'6.jiaxin_gw_statistics'</span>
+<span class="built_in">echo</span> <span class="string">'7.jiaxin_gw_config'</span>
+<span class="built_in">echo</span> <span class="string">'8.jiaxin_gw_order'</span>
+
+<span class="built_in">read</span> project
+<span class="built_in">echo</span> <span class="string">'请输入提交参数commit：'</span>
+<span class="built_in">read</span> commit
+               <span class="comment">#在控制台输入1 2 3，它们之间用空格隔开。</span>
+<span class="keyword">if</span> <span class="built_in">test</span> <span class="variable">$project</span> <span class="_">-eq</span> 1 ;<span class="keyword">then</span>   
+<span class="built_in">echo</span> <span class="string">'-----------------------jiaxin_lib_core-START-----------------------'</span> 
+<span class="built_in">cd</span> jiaxin_lib_core &amp;&amp; git add -A &amp;&amp; git commit -m <span class="variable">$commit</span> &amp;&amp; git push origin HEAD:refs/<span class="keyword">for</span>/master &amp;&amp; <span class="built_in">cd</span> ..
+<span class="built_in">echo</span> <span class="string">'------------------------jiaxin_lib_core-END-----------------------'</span>;
+<span class="keyword">fi</span>
+<span class="keyword">if</span> <span class="built_in">test</span> <span class="variable">$project</span> <span class="_">-eq</span> 2  ;<span class="keyword">then</span>
+<span class="built_in">echo</span> <span class="string">'------------------------jiaxin_lib_dubbox-START----------------------'</span>
+<span class="built_in">cd</span> jiaxin_lib_dubbox &amp;&amp; git add -A &amp;&amp; git commit -m <span class="variable">$commit</span> &amp;&amp; git push origin HEAD:refs/<span class="keyword">for</span>/master &amp;&amp; <span class="built_in">cd</span> ..
+<span class="built_in">echo</span> <span class="string">'-----------------------jiaxin_lib_dubbox-END-----------------------'</span>;
+<span class="keyword">fi</span>
+<span class="keyword">if</span> <span class="built_in">test</span> <span class="variable">$project</span> <span class="_">-eq</span> 3  ;<span class="keyword">then</span>
+<span class="built_in">echo</span> <span class="string">'------------------------jiaxin_web_devcenter-START----------------------'</span>
+<span class="built_in">cd</span> jiaxin_web_devcenter &amp;&amp; git add -A &amp;&amp; git commit -m <span class="variable">$commit</span> &amp;&amp; git push origin HEAD:refs/<span class="keyword">for</span>/master &amp;&amp; <span class="built_in">cd</span> ..
+<span class="built_in">echo</span> <span class="string">'-----------------------jiaxin_web_devcenter-END-----------------------'</span>;
+<span class="keyword">fi</span>
+<span class="keyword">if</span> <span class="built_in">test</span> <span class="variable">$project</span> <span class="_">-eq</span> 4  ;<span class="keyword">then</span>
+<span class="built_in">echo</span> <span class="string">'------------------------jiaxin_web_agent-START----------------------'</span>
+<span class="built_in">cd</span> jiaxin_web_agent &amp;&amp; git add -A &amp;&amp; git commit -m <span class="variable">$commit</span> &amp;&amp; git push origin HEAD:refs/<span class="keyword">for</span>/master &amp;&amp; <span class="built_in">cd</span> ..
+<span class="built_in">echo</span> <span class="string">'-----------------------jiaxin_web_agent-END-----------------------'</span>;
+<span class="keyword">fi</span>
+<span class="keyword">if</span> <span class="built_in">test</span> <span class="variable">$project</span> <span class="_">-eq</span> 5  ;<span class="keyword">then</span>
+<span class="built_in">echo</span> <span class="string">'------------------------jiaxin_web_conf-START----------------------'</span>
+<span class="built_in">cd</span> jiaxin_web_conf &amp;&amp; git add -A &amp;&amp; git commit -m <span class="variable">$commit</span> &amp;&amp; git push origin HEAD:refs/<span class="keyword">for</span>/master &amp;&amp; <span class="built_in">cd</span> ..
+<span class="built_in">echo</span> <span class="string">'-----------------------jiaxin_web_conf-END-----------------------'</span>;
+<span class="keyword">fi</span>
+<span class="keyword">if</span> <span class="built_in">test</span> <span class="variable">$project</span> <span class="_">-eq</span> 6  ;<span class="keyword">then</span>
+<span class="built_in">echo</span> <span class="string">'------------------------jiaxin_gw_statistics-START----------------------'</span>
+<span class="built_in">cd</span> jiaxin_gw_statistics &amp;&amp; git add -A &amp;&amp; git commit -m <span class="variable">$commit</span> &amp;&amp; git push origin HEAD:refs/<span class="keyword">for</span>/master &amp;&amp; <span class="built_in">cd</span> ..
+<span class="built_in">echo</span> <span class="string">'-----------------------jiaxin_gw_statistics-END-----------------------'</span>;
+<span class="keyword">fi</span>
+<span class="keyword">if</span> <span class="built_in">test</span> <span class="variable">$project</span> <span class="_">-eq</span> 7  ;<span class="keyword">then</span>
+<span class="built_in">echo</span> <span class="string">'------------------------jiaxin_gw_config-START----------------------'</span>
+<span class="built_in">cd</span> jiaxin_gw_config &amp;&amp; git add -A &amp;&amp; git commit -m <span class="variable">$commit</span> &amp;&amp; git push origin HEAD:refs/<span class="keyword">for</span>/master &amp;&amp; <span class="built_in">cd</span> ..
+<span class="built_in">echo</span> <span class="string">'-----------------------jiaxin_gw_config-END-----------------------'</span>;
+<span class="keyword">fi</span>
+<span class="keyword">if</span> <span class="built_in">test</span> <span class="variable">$project</span> <span class="_">-eq</span> 8  ;<span class="keyword">then</span>
+<span class="built_in">echo</span> <span class="string">'------------------------jiaxin_gw_order-START----------------------'</span>
+<span class="built_in">cd</span> jiaxin_gw_order &amp;&amp; git add -A &amp;&amp; git commit -m <span class="variable">$commit</span> &amp;&amp; git push origin HEAD:refs/<span class="keyword">for</span>/master &amp;&amp; <span class="built_in">cd</span> ..
+<span class="built_in">echo</span> <span class="string">'-----------------------jiaxin_gw_order-END-----------------------'</span>;
+<span class="keyword">fi</span>
+</code></pre>
+<h2 id="执行脚本"><a href="#执行脚本" class="headerlink" title="执行脚本"></a>执行脚本</h2><p>使用git客户端切换到git的根目录，执行脚本命令即可。</p>
+<pre><code class="bash">./update.sh
+</code></pre>
+<p>或</p>
+<pre><code class="bash">./push.sh
+</code></pre>
+<h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><ul>
+<li>脚本放到git根目录，其实不放也可以的。你喜欢，<a href="/img/git.png">我的脚本位置</a></li>
+<li>根据个人需要修改相应git命令，以免造成代码混乱，容易产生冲突</li>
+<li>还有push的时候，也是需要按照个人需要修改的，因为git add的时候是全部的，最好区分一下</li>
+<li><strong>相关代码已上传到github</strong>          <strong><a href="https://github.com/wenthywang/pullAndpush" target="_blank" rel="external">链接</a></strong></li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+     
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/09/20/Mybatis调用存储过程报错/" itemprop="url">
+                  Mybatis调用存储过程报错
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-09-20T12:13:41+08:00" content="2016-09-20">
+              2016-09-20
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Mybatis/" itemprop="url" rel="index">
+                    <span itemprop="name">Mybatis</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Mybatis/problems/" itemprop="url" rel="index">
+                    <span itemprop="name">问题</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/09/20/Mybatis调用存储过程报错/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/20/Mybatis调用存储过程报错/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/09/20/Mybatis调用存储过程报错/" class="leancloud_visitors" data-flag-title="Mybatis调用存储过程报错">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="Mybatis调用存储过程"><a href="#Mybatis调用存储过程" class="headerlink" title="Mybatis调用存储过程"></a>Mybatis调用存储过程</h2><h3 id="贴码"><a href="#贴码" class="headerlink" title="贴码"></a>贴码</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">Error querying database.  Cause: java.sql.SQLException: User does not have access to metadata required to determine stored procedure parameter types. If rights can not be granted, configure connection with <span class="string">"noAccessToProcedureBodies=true"</span> to have driver generate parameters that represent INOUT strings irregardless of actual parameter types.</div><div class="line"> The error may exist <span class="keyword">in</span> resources/mapper/AgentStatisDao.xml</div><div class="line"> The error may involve com.jiaxincloud.gw.statistics.dao.statistics.AgentStatisDao.callAgentVisitorManualStatisProcedure</div><div class="line"> The error occurred <span class="keyword">while</span> executing a query</div><div class="line"> SQL: &#123;CALL PRO_AGENT_VISITOR_MANUAL_STATIS(?,?,?)&#125;</div><div class="line"> Cause: java.sql.SQLException: User does not have access to metadata required to determine stored procedure parameter types. If rights can not be granted, configure connection with <span class="string">"noAccessToProcedureBodies=true"</span> to have driver generate parameters that represent INOUT strings irregardless of actual parameter types.</div></pre></td></tr></table></figure>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>跟着这个错误在网上找了一下，原来是该用户没有调用存储过程的权限，所以只要赋予proc的权限即可，亲测成功。在MySql中执行如下命令，授予权限。(user@host 是连接数据库的用户名，修改成连接数据库的用户名就行)</p>
+<pre><code class="bash">grant select on mysql.proc to user@host;
+flush privileges;
+</code></pre>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+     
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/09/11/Hexo搭建个人博客/" itemprop="url">
                   使用Hexo+Git+Nodejs搭建个人博客
                 </a>
@@ -1276,7 +1620,7 @@ web.xml配置是rest风格的/
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">6</span>
+              <span class="site-state-item-count">8</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1284,7 +1628,7 @@ web.xml配置是rest风格的/
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-count">10</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -1293,7 +1637,7 @@ web.xml配置是rest风格的/
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-count">15</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
