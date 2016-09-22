@@ -25,8 +25,8 @@
 
 
 </div>
-<div style="align:center">
-&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspTotal <span id="busuanzi_value_site_pv"><i class="fa fa-spinner fa-spin"></i></span> views.
-您是wenthywang的第<span id="busuanzi_value_site_uv"><i class="fa fa-spinner fa-spin"></i></span>个小伙伴&nbsp&nbsp 你已经访问
+<div style="text-align:center;margin-left:auto;margin-right:auto;">
+Total <span id="busuanzi_value_site_pv"><i class="fa fa-spinner fa-spin"></i></span> views.&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+您是wenthywang的第<span id="busuanzi_value_site_uv"><i class="fa fa-spinner fa-spin"></i></span>个小伙伴&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp本文总阅读量
 <span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span> 次
 </div>
