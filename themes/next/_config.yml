@@ -222,7 +222,7 @@ auto_excerpt:
 
 # Wechat Subscriber
 wechat_subscriber:
-  enabled: true
+  enabled: false
   qcode: /wechat.jpg
   description: if you have any problems, 
           you can contact me by my public wechat account.  
@@ -401,3 +401,5 @@ images: images
 
 # Theme version
 version: 5.0.1
+wechatpay: /images/wechat.png
+alipay: /images/alipay.jpg

@@ -84,11 +84,6 @@ duoshuo_shortname: wenthywang
 search:
   path: public/public/search.xml
   field: all
-
-
-
-include:
-  - .nojekyll
-reward_comment: 无论怎么样 我都会继续Share我的一点一滴！
-wechatpay: /images/wechat.png
-alipay: /images/alipay.jpg
+alipay: /alipay.jpg
+wechatpay: /wechatpay.png
+reward_comment: 我知道没什么人会点的，但是我还是要放上去，给自己点赞
