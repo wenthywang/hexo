@@ -123,7 +123,7 @@ kill 进程号
 ```
 
 至此，head插件已成功安装。
-![head](/img/head.bmp)  
+![head](/img/head.png)  
 
  ## elasticsearch-sql
  github链接 **[elasticsearch-sql](https://github.com/NLPchina/elasticsearch-sql)**
@@ -137,18 +137,18 @@ node node-server.js
 ```
 >至此sql插件已成功安装,同样如果需要后台运行，需要使用nohup命令执行。
 另外sql端口号的配置在es-sql-site\site-server目录下的site_configuration.json文件中配置。
-![sql](/img/sql.bmp)  
+![sql](/img/sql.png)  
 
 ### 总结
    插件安装可能比较繁琐，特别是npm的安装，需要耐心。另外配置链接的地址可以写死在js里面
-![link1](/img/link1.bmp)  
+![link1](/img/link1.png)  
 >这个的链接配置在head-master目录下elasticsearch-head-master\_site\app.js 
 ```
 line 4327 "http://localhost:9200" ->"http://172.16.54.74:19200"
 ```
 配置成启动的es的ip和端口即可
 
-![link2](/img/link2.bmp)  
+![link2](/img/link2.png)  
 >这个的链接配置在head-master目录下es-sql-site\_site\controller.js
 
 ```
