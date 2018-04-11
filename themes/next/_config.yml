@@ -396,26 +396,26 @@ valine:
 
 # Support for youyan comments system.
 # You can get your uid from http://www.uyan.cc
-#youyan_uid: 2160915
+# youyan_uid: 2160915
 
 # Support for LiveRe comments system.
 # You can get your uid from https://livere.com/insight/myCode (General web site)
-livere_uid: MTAyMC8zNTYxMS8xMjE0Nw==
+# livere_uid: MTAyMC8zNTYxMS8xMjE0Nw==
 
 # Gitment
 # Introduction: https://imsun.net/posts/gitment-introduction/
 # You can get your Github ID from https://api.github.com/users/<Github username>
 gitment:
-  enable: false
+  enable: true
   mint: true # RECOMMEND, A mint on Gitment, to support count, language and proxy_gateway
-  count: false # Show comments count in post meta area
+  count: true # Show comments count in post meta area
   lazy: false # Comments lazy loading with a button
   cleanly: false # Hide 'Powered by ...' on footer, and more
   language: # Force language, or auto switch by theme
-  github_user: 
-  github_repo: 
-  client_id: 
-  client_secret: 
+  github_user: wenthywang
+  github_repo: wenthywang.github.io
+  client_id: 1afd3bc48351887ee6c7
+  client_secret: edfeab7d4a3a4fd8223b7f5a54f6c3f65e2a46cb
   proxy_gateway: # Address of api proxy, See: https://github.com/aimingoo/intersect
   redirect_protocol: # Protocol of redirect_uri with force_redirect_protocol when mint enabled
 
@@ -740,31 +740,31 @@ vendors:
   # Internal version: 2.1.5
   # See: http://fancyapps.com/fancybox/
   fancybox: //cdn.jsdelivr.net/fancybox/2.1.5/jquery.fancybox.pack.js
-  fancybox_css:
+  fancybox_css: //cdn.jsdelivr.net/fancybox/2.1.5/jquery.fancybox.min.css
 
   # Internal version: 1.0.6
   # See: https://github.com/ftlabs/fastclick
-  fastclick:
+  fastclick: //cdn.jsdelivr.net/fastclick/1.0.6/fastclick.min.js
 
   # Internal version: 1.9.7
   # See: https://github.com/tuupola/jquery_lazyload
-  lazyload: //cdn.jsdelivr.net/npm/lazyload@2.0.0-beta.2/lazyload.js
+  lazyload: //cdn.jsdelivr.net/jquery.lazyload/1.9.3/jquery.lazyload.min.js
 
   # Internal version: 1.2.1
   # See: http://VelocityJS.org
-  velocity: //cdn.jsdelivr.net/velocity/1.2.1/velocity.min.js
+  velocity: //cdn.jsdelivr.net/velocity/1.2.3/velocity.min.js
 
   # Internal version: 1.2.1
   # See: http://VelocityJS.org
-  velocity_ui: //cdn.jsdelivr.net/velocity/1.2.1/velocity.ui.min.js
+  velocity_ui: //cdn.jsdelivr.net/velocity/1.2.3/velocity.ui.min.js
 
   # Internal version: 0.7.9
   # See: https://faisalman.github.io/ua-parser-js/
-  ua_parser:
+  ua_parser: //cdn.jsdelivr.net/ua-parser.js/0.7.10/ua-parser.min.js
 
   # Internal version: 4.6.2
   # See: http://fontawesome.io/
-  fontawesome: //cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css
+  fontawesome: //maxcdn.bootstrapcdn.com/font-awesome/4.6.2/css/font-awesome.min.css
 
   # Internal version: 1
   # https://www.algolia.com
@@ -812,9 +812,9 @@ vendors:
 
 
 # Assets
-css: css
-js: js
-images: images
+css: /css
+js: /js
+images: /images
 
 # Theme version
 version: 5.1.4
