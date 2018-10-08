@@ -80,7 +80,7 @@ deploy:
     type: git
     repo: 
        github: git@github.com:wenthywang/wenthywang.github.io.git
-       wwh: root@111.230.24.31:/usr/local/wwh/GitLibrary/hexo
+       wwh: ssh://root@111.230.24.31:38002/usr/local/wwh/GitLibrary/hexo
     branch: master
 search:
   path: public/public/search.xml
